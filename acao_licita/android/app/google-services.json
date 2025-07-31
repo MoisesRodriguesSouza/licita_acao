@@ -1,0 +1,76 @@
+{
+  "project_info": {
+    "project_number": "637593383635",
+    "project_id": "licitacoes-app",
+    "storage_bucket": "licitacoes-app.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637593383635:android:8ede371807dca2149a9a26",
+        "android_client_info": {
+          "package_name": "com.example.acao_licita"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637593383635-tgokqt5tnrr158jg06esq558m2lshtv2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJzxNE8AqDI7gDbEWOU5WNOIgKsTVzazg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637593383635-tgokqt5tnrr158jg06esq558m2lshtv2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:637593383635:android:f61877ef2fa764ed9a9a26",
+        "android_client_info": {
+          "package_name": "com.smed.licitacoes_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "637593383635-jghbvv3kft1nio3qmsv2ltj5kfdqquo8.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.smed.licitacoes_app",
+            "certificate_hash": "3cb0e50408996828a17385a89f5935631ad63d39"
+          }
+        },
+        {
+          "client_id": "637593383635-tgokqt5tnrr158jg06esq558m2lshtv2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBJzxNE8AqDI7gDbEWOU5WNOIgKsTVzazg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "637593383635-tgokqt5tnrr158jg06esq558m2lshtv2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
