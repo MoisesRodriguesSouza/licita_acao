@@ -1,63 +1,61 @@
-// =================================================================================
 // lib/config/app_router.dart
-// Configuração do roteador GoRouter.
-// =================================================================================
-import 'package:acao_licita/features/splash/screens/splash_screen.dart';
+// Configuração do roteador GoRouter para navegação na aplicação.
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:acao_licita/core/services/providers/auth_provider.dart';
-
-import '../features/auth/screens/login_page.dart';
-import '../features/dashboard/screens/dashboard_page.dart';
+import '../core/providers/auth_provider.dart'; // Importa o provedor de autenticação
+import '../features/auth/screens/login_page.dart'; // Importa a página de login
+import '../features/dashboard/screens/dashboard_page.dart'; // Importa a página do dashboard
+import '../features/auth/screens/signup_page.dart'; // Importa a página de registo
 
 final goRouterProvider = Provider<GoRouter>((ref) {
-  // Observa o estado de autenticação para acionar o 'redirect'
+  // Observa o estado de autenticação do utilizador
   final authState = ref.watch(authStateProvider);
 
   return GoRouter(
-    initialLocation: '/splash',
+    initialLocation: '/', // Define a rota inicial
     routes: [
-      GoRoute(
-        path: '/splash',
-        builder: (context, state) => const SplashScreen(),
-      ),
+      // Rota para a página de login
       GoRoute(
         path: '/',
         name: 'login',
         builder: (context, state) => const LoginPage(),
       ),
+      // Rota para a página de registo
+      GoRoute(
+        path: '/signup',
+        name: 'signup',
+        builder: (context, state) => const SignupPage(),
+      ),
+      // Rota para a página do dashboard
       GoRoute(
         path: '/dashboard',
         name: 'dashboard',
         builder: (context, state) => const DashboardPage(),
       ),
+      // Adicione outras rotas aqui conforme a aplicação cresce
     ],
+    // Lógica de redirecionamento baseada no estado de autenticação
     redirect: (context, state) {
-      // Usa o valor mais recente do provider, sem 'watch' para evitar loops
-      final authStateValue = ref.read(authStateProvider);
-      final loggedIn = authStateValue.valueOrNull != null;
+      // Verifica se o utilizador está autenticado
+      final bool loggedIn = authState.value != null;
+      // Verifica se a rota atual é a de login ou registo, usando state.fullPath
+      final bool tryingToAuth =
+          state.fullPath == '/' || state.fullPath == '/signup';
 
-      // Enquanto o estado de autenticação está carregando,
-      // permaneça na tela de splash.
-      if (authStateValue.isLoading) {
-        return state.matchedLocation == '/splash' ? null : '/splash';
-      }
-
-      final onLoginPage = state.matchedLocation == '/';
-      final onSplashPage = state.matchedLocation == '/splash';
-
-      // Se o usuário não está logado, deve ir para a tela de login.
+      // Se o utilizador NÃO estiver autenticado
       if (!loggedIn) {
-        return onLoginPage ? null : '/';
+        // Se ele estiver a tentar ir para o login ou registo, permite. Senão, redireciona para o login.
+        return tryingToAuth ? null : '/';
       }
 
-      // Se o usuário está logado e na tela de login ou splash,
-      // redireciona para o dashboard.
-      if (loggedIn && (onLoginPage || onSplashPage)) {
-        return '/dashboard';
+      // Se o utilizador ESTIVER autenticado
+      if (loggedIn) {
+        // Se ele estiver na página de login ou registo, redireciona para o dashboard
+        return tryingToAuth ? '/dashboard' : null;
       }
 
+      // Nenhuma mudança de rota necessária
       return null;
     },
   );

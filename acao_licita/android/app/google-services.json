@@ -29,6 +29,13 @@
             {
               "client_id": "637593383635-tgokqt5tnrr158jg06esq558m2lshtv2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "637593383635-9588ke6bkh1uqvt3qhd991qnglbb7ksk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.acaoLicita"
+              }
             }
           ]
         }
@@ -66,6 +73,13 @@
             {
               "client_id": "637593383635-tgokqt5tnrr158jg06esq558m2lshtv2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "637593383635-9588ke6bkh1uqvt3qhd991qnglbb7ksk.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.acaoLicita"
+              }
             }
           ]
         }

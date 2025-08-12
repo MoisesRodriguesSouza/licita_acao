@@ -32,10 +32,12 @@ dependencies:
     sdk: flutter
   go_router: ^12.1.0
   flutter_riverpod: ^2.4.9
-  firebase_core: ^2.24.2
-  firebase_auth: ^4.15.2
+  firebase_core: ^2.25.2 # Atualizado
+  firebase_auth: ^4.16.0 # Atualizado
   google_sign_in: ^6.2.1
-  cloud_firestore: ^4.13.6
+  cloud_firestore: ^4.14.0 # Atualizado
+  firebase_storage: ^11.6.0 # Atualizado
+  #cupertino_icons: ^1.0.2
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.

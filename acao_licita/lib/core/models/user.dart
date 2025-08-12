@@ -1,9 +1,11 @@
+// lib/core/models/user.dart
+// Modelo de dados para o utilizador da aplicação.
 class User {
   final String id;
   final String email;
   final String displayName;
-  final String role; // e.g., 'admin', 'gestor'
-  final String setorId;
+  final String role; // Ex: 'admin', 'gestor', 'assessor'
+  final String setorId; // ID do setor ao qual o utilizador pertence
 
   User({
     required this.id,
@@ -13,16 +15,18 @@ class User {
     required this.setorId,
   });
 
+  // Construtor de fábrica para criar um objeto User a partir de um mapa (ex: Firestore)
   factory User.fromFirestore(Map<String, dynamic> data) {
     return User(
-      id: data['id'],
-      email: data['email'],
-      displayName: data['displayName'],
-      role: data['role'],
-      setorId: data['setorId'],
+      id: data['id'] ?? '', // Fornece um valor padrão caso 'id' seja nulo
+      email: data['email'] ?? '',
+      displayName: data['displayName'] ?? '',
+      role: data['role'] ?? 'assessor', // Role padrão como 'assessor'
+      setorId: data['setorId'] ?? '',
     );
   }
 
+  // Converte o objeto User para um mapa (ex: para salvar no Firestore)
   Map<String, dynamic> toFirestore() {
     return {
       'id': id,

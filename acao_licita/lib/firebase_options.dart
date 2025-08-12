@@ -89,4 +89,5 @@ class DefaultFirebaseOptions {
     storageBucket: 'licitacoes-app.firebasestorage.app',
     measurementId: 'G-PLC7J748RE',
   );
+
 }
